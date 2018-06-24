@@ -3,7 +3,7 @@ define("DEVICE", "device");
 define("COMMAND", "command");
 
 $devices = array("ytf1", "bn59");
-$commands = array("on", "off");
+$commands = array("cool-26-low", "cool-28-low", "off");
 
 if (isset($_GET[DEVICE]) && isset($_GET[COMMAND])) {
     $device = $_GET[DEVICE];
