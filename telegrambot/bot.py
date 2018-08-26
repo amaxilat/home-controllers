@@ -62,24 +62,27 @@ def hueSwitch(status):
 
 def doSwitch(bot, chat_id, zone, state):
     replyText = "Switching "
-    lightsSwitch(zone, state)
     replyText += str(state)
     replyText += " light zone "
     replyText += zone
     bot.send_message(chat_id=chat_id, text=replyText)
+    lightsSwitch(zone, state)
+    bot.send_message(chat_id=chat_id, text="Done")
 
 
 def doSwitchAc(bot, chat_id, state):
     replyText = "Switching AC "
-    acSwitch(intValue(state))
     replyText += state
     bot.send_message(chat_id=chat_id, text=replyText)
+    acSwitch(intValue(state))
+	bot.send_message(chat_id=chat_id, text="Done")
 
 def doHue(bot, chat_id, state):
     replyText = "Switching Hue"
-    hueSwitch(state)
     replyText += state
     bot.send_message(chat_id=chat_id, text=replyText)
+    hueSwitch(state)
+	bot.send_message(chat_id=chat_id, text="Done")
 
 def parseMessage(bot, chat_id, text, user):
     parts = text.split(" ")
@@ -100,6 +103,7 @@ def parseMessage(bot, chat_id, text, user):
         doSwitch(bot, chat_id, "2", 0)
         doSwitch(bot, chat_id, "3", 0)
         doSwitchAc(bot, chat_id, "off")
+        doHue(bot, chat_id, "0")
         bot.send_message(chat_id=chat_id, text="All done!")
     else:
         bot.send_message(chat_id=chat_id, text="Sorry, I cannot help you with that. :(")
