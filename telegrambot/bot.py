@@ -86,7 +86,7 @@ def parseMessage(bot, chat_id, text, user):
     if parts[0] == "lights":
         doSwitch(bot, chat_id, parts[1], intValue(parts[2]))
     elif parts[0] == "hue":
-		doHue(bot, chat_id, parts[1])
+        doHue(bot, chat_id, parts[1])
     elif parts[0] == "ac":
         replyText = "Switching "
         acSwitch(intValue(parts[1]))
