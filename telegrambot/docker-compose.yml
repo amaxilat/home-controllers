@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+  python:
+    image: 'qopbot/tbot:1.1'
+    environment:
+      TELEGRAM_BOT_TOKEN: MYTELEGRAMTOKEN
+      ACCEPTED_USERS: USERID1,USERID2
+      LIGHTS_URL: http://127.0.0.1/action.php
+      AC_URL: http://127.0.0.1/action.php
