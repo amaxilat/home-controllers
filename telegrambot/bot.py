@@ -16,6 +16,7 @@ import requests
 token = os.environ['TELEGRAM_BOT_TOKEN']
 lightsUrl = os.environ['LIGHTS_URL']
 acUrl = os.environ['AC_URL']
+hueUrl = os.environ['HUE_URL']
 accepted_users_str = os.environ['ACCEPTED_USERS']
 accepted_users = []
 
@@ -56,6 +57,8 @@ def acSwitch(state):
     else:
         requests.get(acUrl + "?device=ytf1&command=off")
 
+def hueSwitch(status):
+    requests.get(hueUrl+"?hue=3&status="+status)
 
 def doSwitch(bot, chat_id, zone, state):
     replyText = "Switching "
@@ -72,11 +75,18 @@ def doSwitchAc(bot, chat_id, state):
     replyText += state
     bot.send_message(chat_id=chat_id, text=replyText)
 
+def doHue(bot, chat_id, state):
+    replyText = "Switching Hue"
+    hueSwitch(state)
+    replyText += state
+    bot.send_message(chat_id=chat_id, text=replyText)
 
 def parseMessage(bot, chat_id, text, user):
     parts = text.split(" ")
     if parts[0] == "lights":
         doSwitch(bot, chat_id, parts[1], intValue(parts[2]))
+    elif parts[0] == "hue":
+		doHue(bot, chat_id, parts[1])
     elif parts[0] == "ac":
         replyText = "Switching "
         acSwitch(intValue(parts[1]))
