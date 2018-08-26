@@ -12,3 +12,6 @@ Contains LIRCD configurations files for my devices.
 
 * Directory [jobs](jobs)
 Contains usefull scripts for implementing automation solutions.
+
+* Directory [telegrambot](telegrambot)
+Contains a bot implementation for telegram that can be used to switch devices on and off in the local network.
