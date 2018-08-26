@@ -75,14 +75,14 @@ def doSwitchAc(bot, chat_id, state):
     replyText += state
     bot.send_message(chat_id=chat_id, text=replyText)
     acSwitch(intValue(state))
-	bot.send_message(chat_id=chat_id, text="Done")
+    bot.send_message(chat_id=chat_id, text="Done")
 
 def doHue(bot, chat_id, state):
     replyText = "Switching Hue"
     replyText += state
     bot.send_message(chat_id=chat_id, text=replyText)
     hueSwitch(state)
-	bot.send_message(chat_id=chat_id, text="Done")
+    bot.send_message(chat_id=chat_id, text="Done")
 
 def parseMessage(bot, chat_id, text, user):
     parts = text.split(" ")
