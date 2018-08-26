@@ -74,6 +74,21 @@
             <tr style="height:20%;border: 0">
                 <td>
                     <form action="action.php" class="form-inline" style="height: 100%;">
+                        <input type="hidden" name="hue" value="3"/>
+                        <input type="hidden" name="status" value="1"/>
+                        <input type="submit" value="HUE ON"
+                               class="btn btn-success col-md-12 col-xs-12" style="height: 100%;"/>
+                    </form>
+                <td>
+                    <form action="action.php" class="form-inline" style="height: 100%;">
+                        <input type="hidden" name="hue" value="3"/>
+                        <input type="hidden" name="status" value="0"/>
+                        <input type="submit" value="HUE OFF"
+                               class="btn btn-danger col-md-12 col-xs-12" style="height: 100%;"/>
+                    </form>
+            <tr style="height:20%;border: 0">
+                <td>
+                    <form action="action.php" class="form-inline" style="height: 100%;">
                         <input type="hidden" name="yee" value="0x0000000000c936d0"/>
                         <input type="hidden" name="status" value="1"/>
                         <input type="submit" value="BED ON"
