@@ -50,9 +50,11 @@ def lightsSwitch(number, status):
 
 
 def acSwitch(state):
-    if state == 28:
+    if state == '28':
         requests.get(acUrl + "?device=ytf1&command=cool-28-low")
-    if state == 1 or state == 26:
+    elif state == '27':
+        requests.get(acUrl + "?device=ytf1&command=heat-27-auto")        
+    elif state == 'on' or state == '26':
         requests.get(acUrl + "?device=ytf1&command=cool-26-low")
     else:
         requests.get(acUrl + "?device=ytf1&command=off")
@@ -74,7 +76,7 @@ def doSwitchAc(bot, chat_id, state):
     replyText = "Switching AC "
     replyText += state
     bot.send_message(chat_id=chat_id, text=replyText)
-    acSwitch(intValue(state))
+    acSwitch(state)
     bot.send_message(chat_id=chat_id, text="Done")
 
 def doHue(bot, chat_id, state):
@@ -95,7 +97,7 @@ def parseMessage(bot, chat_id, text, user):
         doHue(bot, chat_id, parts[1])
     elif parts[0] == "ac":
         replyText = "Switching "
-        acSwitch(intValue(parts[1]))
+        acSwitch(parts[1])
         replyText += parts[1]
         bot.send_message(chat_id=chat_id, text=replyText)
     elif parts[0] == "goodmorning":
